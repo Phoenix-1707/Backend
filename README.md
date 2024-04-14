@@ -10,14 +10,23 @@ Say farewell to the cumbersome process of manual data logging on campus. ADIOSAR
 
 Features
 Web Interface: Access from anywhere, anytime with an internet connection.
+
 User Modes: Choose your role: OnCampus, OffCampus/TempAccess, Security, Dashboard, Admin.
+
 Authentication: Secure login and signup functionalities for utmost confidentiality.
+
 Gatepass Generator: Instantly create gatepasses for authorized entries.
+
 Entry/Exit Logging: Track every entry and exit meticulously with precise timestamps.
+
 Time-based Access: Control access based on designated timeframes for enhanced security.
+
 Guest Mode: Simplified access for guests with restricted permissions.
+
 Token-based Authentication: Advanced security measures with token-based authentication.
+
 Limited Free Entries: Offer a set number of complimentary entries for users.
+
 Auto Expiry: Effortlessly manage gatepass expiration with automated expiry settings.
 
 
