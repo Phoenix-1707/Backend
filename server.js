@@ -94,10 +94,10 @@ app.post('/backend-endpoint', (req, res) => {
 app.post('/qrcheck', async (req, res) => {
     try {
         const qrToken = req.body.data; // Assuming the data is sent as { "data": "Your QR token here" }
-        console.log(qrToken);
+
         // Fetch user details based on the QR token
         const user = await User.findOne({ qrCodeToken: qrToken });
-
+        console.log(qrToken)
         // Check if user exists
         if (!user) {
             return res.status(404).send('User not found');
@@ -106,20 +106,17 @@ app.post('/qrcheck', async (req, res) => {
         // Update the state of the QR code in the database
         const updatedState = !user.state;
         await User.findByIdAndUpdate(user._id, { state: updatedState });
+        console.log(user)        // Increment the usage count of the QR token for the specific user
+        const updatedUsageCount = user.usageCount + 1;
 
-        // Increment the usage count of the QR token for the specific user
-        
-        const usageCount=user.usageCount+1;
-        
-        await User.findByIdAndUpdate(user._id, { usageCount: usageCount });
-        console.log(usageCount);
-        if (usageCount === 2) {
+        // If the usage count reaches 2, update the QR token and reset usage count
+        if (updatedUsageCount === 2) {
             const newToken = crypto.randomBytes(16).toString('hex'); // Generate a new random token
             await User.findByIdAndUpdate(user._id, { qrCodeToken: newToken, usageCount: 0 });
+        } else {
+            // Otherwise, update the usage count
+            await User.findByIdAndUpdate(user._id, { usageCount: updatedUsageCount });
         }
-        // If the usage count reaches 2, up date the QR token and reset usage count
-        
-        
 
         // Store user details
         userDetails = {
@@ -129,48 +126,31 @@ app.post('/qrcheck', async (req, res) => {
             state: user.state,
             usageCount: user.usageCount,
             qrCodeToken: user.qrCodeToken,
-
             // Add more user details as needed
         };
 
-        // console.log(userDetails);
-        // res.sendStatus(200); // Send success response
-    res.json(userDetails);
+        console.log(userDetails);
+        res.sendStatus(200); // Send success response
     } catch (error) {
         console.error('Error processing data:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 
-
-// Handle GET request for user-details page
+// GET endpoint to handle user-details page
 app.get('/user-details.html', (req, res) => {
     try {
-        // Read the userdetails.html file
-        fs.readFile(path.join(__dirname, 'HTML', 'userdetails.html'), 'utf8', (err, data) => {
-            if (err) {
-                console.error('Error reading userdetails.html:', err);
-                return res.status(500).send('Internal Server Error');
-            }
-            // Replace placeholders in the HTML file with dynamic data
-            data = data.replace('{{email}}', userDetails.email);
-            data = data.replace('{{phone}}', userDetails.phone);
-            data = data.replace('{{role}}', userDetails.role);
-            // data = data.replace('{{state}}', userDetails.state);
-            // data = data.replace('{{usageCount}}', userDetails.usageCount);
-            if(!userDetails.usageCount){
-                data = data.replace('{{state}}', "ENTRY SUCCESSFUL:-) YOU R ONBOARD");
-            }
-            else{
-                
-                data = data.replace('{{state}}', "EXITED SUCCESSFUL:-) ADIOS");
-                     }
-            // Send the modified HTML content as a response
-            res.send(data);
+        // Replace placeholders in the HTML file with dynamic data from userDetails
+        let data = fs.readFileSync(path.join(__dirname, 'HTML', 'userdetails.html'), 'utf8');
+        data = data.replace('{{email}}', userDetails.email || '');
+        data = data.replace('{{phone}}', userDetails.phone || '');
+        data = data.replace('{{role}}', userDetails.role || '');
+        data = data.replace('{{state}}', userDetails.state ? 'ENTRY SUCCESSFUL:-) YOU R ONBOARD' : 'EXITED SUCCESSFUL:-) ADIOS');
+        data = data.replace('{{usageCount}}', userDetails.usageCount || 0);
 
-            // userDetails = {};
-            // console.log(userDetails);
-        });
+        // Send the modified HTML content as a response
+        res.send(data);
+        console.log(userDetails);
     } catch (error) {
         console.error('Error rendering user-details page:', error);
         res.status(500).send('Internal Server Error');
