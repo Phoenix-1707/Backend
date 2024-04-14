@@ -3,6 +3,7 @@ ADIOSARRIVAL
   <img src="https://github.com/Phoenix-1707/Backend/assets/83780410/b5dc466c-c43a-4962-a53c-9f1a79028117" alt="ADIOSARRIVAL Logo">
 </div>
 Overview
+
 Welcome to ADIOSARRIVAL - Your Ultimate Digital Entry Exit System!
 
 Say farewell to the cumbersome process of manual data logging on campus. ADIOSARRIVAL is here to revolutionize your entry and exit experience with its cutting-edge features and seamless interface.
@@ -18,7 +19,10 @@ Guest Mode: Simplified access for guests with restricted permissions.
 Token-based Authentication: Advanced security measures with token-based authentication.
 Limited Free Entries: Offer a set number of complimentary entries for users.
 Auto Expiry: Effortlessly manage gatepass expiration with automated expiry settings.
+
+
 Todo
+
 For E-Gate
 Develop the webpage with essential features for a seamless user experience.
 Implement user modes: OnCampus, OffCampus/TempAccess, Security, Dashboard, Admin.
