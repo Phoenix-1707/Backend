@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AdiosArrival</title>
+    <link rel="stylesheet" href="CSS/signup.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit&display=swap">
+</head>
+<body>
+    <style>
+        body {
+        background-image: url('2.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: auto;
+        padding: auto;
+        font-family: Arial, sans-serif; /* Optional: Set font-family for the entire page */
+        font-family: 'Outfit', sans-serif; /* Apply Google Outfit font to body */
+        }
+    </style>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">AdiosArrival</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="guest.html">Guest Request</a></li>
+                    <li><a href="FAQs.pdf" target="_blank">FAQs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="login">
+        <div class="container">
+            <h2>Sign Up</h2>
+            <form action="/registration-form" method="POST">
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" required><br><br>
+                <label for="phone">Phone No:</label><br>
+                <input type="text" id="phone" name="phone" required><br><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <label for="role">Select Role:</label><br>
+                <input type="radio" id="staff" name="role" value="staff" required>
+                <label for="staff">Staff</label><br>
+                <input type="radio" id="student" name="role" value="student">
+                <label for="student">Student</label><br>
+                <input type="radio" id="security" name="role" value="security">
+                <label for="security">Security</label><br><br>
+                <input type="submit" value="Sign Up" class="btn" onclick= "return validateForm(event)">
+            </form>
+        </div>
+    </section>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const message = params.get('message');
+    
+        if (message) {
+            alert(message);
+        }
+        function validateForm() {
+            // event.preventDefault();
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var password = document.getElementById("password").value;
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,16}$/;
+            var phoneRegex = /^\d{10}$/;
+    
+            if (!email.endsWith("@iitgn.ac.in")) {
+                alert("Email must end with @iitgn.ac.in");
+                location.reload();
+                return false; // Prevent form submission
+            }
+            if (!phoneRegex.test(phone)) {
+                alert("Phone number must be exactly 10 digits");
+                return false; // Prevent form submission
+            }
+            if (password.length < 8 || password.length > 16) {
+                alert("Password must be between 8-16 characters");
+                return false; // Prevent form submission
+            }
+            if (!passwordRegex.test(password)) {
+                alert("Password must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AdiosArrival. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+        background-image: url('2.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; /* Optional: Set font-family for the entire page */
+        font-family: 'Outfit', sans-serif; /* Apply Google Outfit font to body */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff6b;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-details {
+            margin-bottom: 20px;
+        }
+
+        .user-details p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3a79bd;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none; /* Remove underline for anchor elements */
+        }
+
+        .btn:hover {
+            background-color: #2b2f33;
+        }
+
+        /* Custom styles for entry status */
+        .entry-status {
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .entry-inside {
+            background-color: #28a745; /* Green */
+        }
+
+        .entry-outside {
+            background-color: #dc3545; /* Red */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>User Details</h1>
+        <div class="user-details">
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Phone:</strong> {{phone}}</p>
+            <p><strong>Role:</strong> {{role}}</p>
+            <p><strong>State:</strong>  {{state}}</p>
+            <p><strong>Count:</strong>  {{usageCount}}</p>
+            <!-- Add more user details as needed -->
+        </div>
+        <div class="btn-container">
+            <!-- <button class="btn">Scan Next QR Code</button> -->
+            <a href="security_dashboard.html" class="btn">Scan Next QR Code</a>
+        </div>
+    </div>
+</body>
+
+</html>

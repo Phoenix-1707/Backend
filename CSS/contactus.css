@@ -1,0 +1,127 @@
+/* contact_us.css */
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Outfit', sans-serif; /* Google Outfit font */
+    background-image: url('2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Light text color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: auto;
+    text-align: center;
+}
+
+/* Header styles */
+header {
+    padding: 20px 0;
+    overflow: hidden; /* Clear the floats */
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    float: left; /* Float the logo to the left */
+}
+header h1 a {
+    text-decoration: none; /* Remove default underline */
+    color: #fff; /* Set text color */
+    font-size: 24px; /* Set font size */
+    display: inline-block; /* Ensure the anchor takes up only necessary space */
+    padding: 10px; /* Add padding for clickable area */
+}
+
+header h1 a:hover {
+    color: #000000;
+    /* background-color: #fffefe;
+    background-color: rgba(255, 255, 255, 0.2); Add background color on hover */
+    border-radius: 5px; /* Add rounded corners */
+}
+nav {
+    float: right; /* Float the navigation to the right */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Contact section styles */
+.contact {
+    padding: 100px 0;
+}
+
+.contact h2 {
+    color: #fee;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap if they exceed container width */
+    justify-content: center; /* Center items horizontally */
+}
+
+.contact label {
+    padding: auto;
+    display: flex; /* Use flexbox for labels and inputs */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact input[type="submit"] {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact input[type="submit"]:hover {
+    color: #000000;
+    background-color: #fffefe; /* Darker background color on hover */
+}

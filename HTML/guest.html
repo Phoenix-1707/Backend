@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Request - AdiosArrival</title>
+    <link rel="stylesheet" href="CSS/guest.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit&display=swap">
+</head>
+<body>
+    <style>
+    body {
+    background-image: url('2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+    padding: auto;
+    font-family: Arial, sans-serif; /* Optional: Set font-family for the entire page */
+    font-family: 'Outfit', sans-serif; /* Apply Google Outfit font to body */
+    }
+</style>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">AdiosArrival</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="guest.html">Guest Request</a></li>
+                    <li><a href="FAQs.pdf" target="_blank">FAQs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guest-request">
+        <div class="container">
+            <h2>Guest Request</h2>
+            <form action="#" method="POST">
+                <label for="guest-name">Name:</label><br>
+                <input type="text" id="guest-name" name="guest-name" required><br><br>
+                <label for="guest-email">Email:</label><br>
+                <input type="email" id="guest-email" name="guest-email" required><br><br>
+                <label for="guest-purpose">Purpose of Visit:</label><br>
+                <input type="text" id="guest-purpose" name="guest-purpose" required><br><br>
+                <input type="submit" value="Submit Request" class="btn">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AdiosArrival. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

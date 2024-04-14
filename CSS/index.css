@@ -1,0 +1,181 @@
+/* styles.css */
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Outfit', sans-serif; /* Google Outfit font */
+    /* background-color: #f9f9f9; Light background color */
+    color: #333; /* Dark text color */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: auto;
+    color: #fff;
+    text-align: center;
+}
+header h1 a {
+    text-decoration: none; /* Remove default underline */
+    color: #fff; /* Set text color */
+    font-size: 24px; /* Set font size */
+    display: inline-block; /* Ensure the anchor takes up only necessary space */
+    padding: 10px; /* Add padding for clickable area */
+}
+
+header h1 a:hover {
+    color: #000000;
+    /* background-color: #fffefe;
+    background-color: rgba(255, 255, 255, 0.2); Add background color on hover */
+    border-radius: 5px; /* Add rounded corners */
+}
+/* Header styles */
+/* Header styles */
+header {
+    /* background-color: #333; Dark background color */
+     /* Light text color */
+    padding: 20px 0;
+    overflow: hidden; /* Clear the floats */
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    float: left; /* Float the logo to the left */
+}
+
+nav {
+    float: right; /* Float the navigation to the right */
+}
+color: #fff;
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Hero section styles */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    /* background-color: #f2f2f2; Light background color */
+}
+
+.hero h2 {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 28px;
+    color: #fff;
+}
+
+/* About section styles */
+#about {
+    margin-top: auto;
+    padding: 100px 0;
+    text-align: center;
+    /* background-color: #fff; White background color */
+}
+
+#about h2 {
+    margin: 0;
+    color: #fff;
+    padding: 0;
+    font-size: 36px;
+}
+
+#about p {
+    margin: 20px 0;
+    font-size: 28px;
+    color: #fee;
+}
+
+/* Contact section styles */
+/* #contact {
+    padding: 100px 0;
+    text-align: center;
+}
+
+#contact h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+}
+
+#contact p {
+    margin: 20px 0;
+} */
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555; /* Darker background color on hover */
+}
+.button-container {
+    margin-top: 20px;
+    display: flex; /* Use flexbox to align items */
+    justify-content: center; /* Center items horizontally */
+}
+
+.btn {
+    background-color: #2e2b34; /* Dark background color */
+    color: #fff; /* Light text color */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 5px; /* Add margin to create space between buttons */
+}
+
+.btn:hover {
+    color: #000000;
+    background-color: #fffefe; /* Darker background color on hover */
+}

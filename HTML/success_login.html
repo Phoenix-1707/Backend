@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@latest"></script>
+    <style>
+        body {
+            background-image: url('2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: auto;
+            padding: auto;
+            font-family: Arial, sans-serif; /* Optional: Set font-family for the entire page */
+            font-family: 'Outfit', sans-serif; /
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        #qrcode {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logged In Successfully</h1>
+    <!-- <input onchange="UpdateQRCode(this.value)" value="Hello World..."/><br> -->
+    <iframe id="qrcode" src="" width="250" height="250" ></iframe>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const message = params.get('message');
+
+        function runOnPageLoad() {
+            const params = new URLSearchParams(window.location.search);
+            const message = params.get('message');
+            if (message) {
+                UpdateQRCode(message); // Call UpdateQRCode with the message
+            }
+        }
+        function UpdateQRCode(val){
+            document.getElementById("qrcode").setAttribute("src","https://api.mimfa.net/qrcode?value="+encodeURIComponent(val)+"&as=value");
+        }
+        document.addEventListener("DOMContentLoaded", runOnPageLoad);
+
+    </script>
+</body>
+</html>
+

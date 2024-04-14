@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AdiosArrival</title>
+    <link rel="stylesheet" href="CSS/contactus.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit&display=swap">
+</head>
+<body>
+    <style>
+        body {
+        background-image: url('2.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: auto;
+        padding: auto;
+        font-family: Arial, sans-serif; /* Optional: Set font-family for the entire page */
+        font-family: 'Outfit', sans-serif; /* Apply Google Outfit font to body */
+        }
+    </style>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">AdiosArrival</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="guest.html">Guest Request</a></li>
+                    <li><a href="FAQs.pdf" target="_blank">FAQs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Feel free to get in touch with us for any inquiries or assistance.</p>
+            <form action="#" method="POST">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AdiosArrival. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
