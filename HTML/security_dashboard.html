@@ -43,8 +43,36 @@
 
     <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
+        function sendDataToBackend(text) {
+    const data = { data: text }; // Wrap the token in an object
+    fetch('/qrcheck', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Data sent successfully');
+            // Handle successful response if needed
+        } else {
+            console.error('Failed to send data');
+            // Handle failed response if needed
+        }
+    })
+    .catch(error => {
+        console.error('Error sending data:', error);
+        // Handle error if needed
+    });
+}
+
         document.addEventListener("DOMContentLoaded", function () {
             function onScanSuccess(decodeText, decodeResult) {
+                const dataObject = {
+        token: decodeText
+    };
+                sendDataToBackend(decodeText);
                 // alert("Your QR code is: " + decodeText);
                 window.location.href="userdetails.html";
                
