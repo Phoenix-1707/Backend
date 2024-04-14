@@ -97,25 +97,10 @@ app.post('/qrcheck', async (req, res) => {
 
         // Fetch user details based on the QR token
         const user = await User.findOne({ qrCodeToken: qrToken });
-        console.log(qrToken)
+
         // Check if user exists
         if (!user) {
             return res.status(404).send('User not found');
-        }
-
-        // Update the state of the QR code in the database
-        const updatedState = !user.state;
-        await User.findByIdAndUpdate(user._id, { state: updatedState });
-        console.log(user)        // Increment the usage count of the QR token for the specific user
-        const updatedUsageCount = user.usageCount + 1;
-
-        // If the usage count reaches 2, update the QR token and reset usage count
-        if (updatedUsageCount === 2) {
-            const newToken = crypto.randomBytes(16).toString('hex'); // Generate a new random token
-            await User.findByIdAndUpdate(user._id, { qrCodeToken: newToken, usageCount: 0 });
-        } else {
-            // Otherwise, update the usage count
-            await User.findByIdAndUpdate(user._id, { usageCount: updatedUsageCount });
         }
 
         // Store user details
@@ -129,7 +114,8 @@ app.post('/qrcheck', async (req, res) => {
             // Add more user details as needed
         };
 
-        console.log(userDetails);
+        console.log(userDetails); // Log the user details for debugging purposes
+
         res.sendStatus(200); // Send success response
     } catch (error) {
         console.error('Error processing data:', error);
@@ -137,11 +123,13 @@ app.post('/qrcheck', async (req, res) => {
     }
 });
 
-// GET endpoint to handle user-details page
-app.get('/user-details.html', (req, res) => {
+// GET endpoint to render user details page
+app.get('/userdetails', (req, res) => {
     try {
-        // Replace placeholders in the HTML file with dynamic data from userDetails
+        // Read the user-details.html file
         let data = fs.readFileSync(path.join(__dirname, 'HTML', 'userdetails.html'), 'utf8');
+        // console.log(data); // Log the HTML content for debugging purposes
+        // Replace placeholders in the HTML file with dynamic user details
         data = data.replace('{{email}}', userDetails.email || '');
         data = data.replace('{{phone}}', userDetails.phone || '');
         data = data.replace('{{role}}', userDetails.role || '');
@@ -150,7 +138,6 @@ app.get('/user-details.html', (req, res) => {
 
         // Send the modified HTML content as a response
         res.send(data);
-        console.log(userDetails);
     } catch (error) {
         console.error('Error rendering user-details page:', error);
         res.status(500).send('Internal Server Error');
